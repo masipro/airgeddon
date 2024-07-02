@@ -1,3 +1,81 @@
+### 11.22
+ - Possibility to add manually ESSID name for selected hidden networks
+ - Improvement on process killing on Evil Twin attacks
+ - Add WPS version to network selection menu for WPS networks
+ - Reordered networks on network selection menus (standard and WPS), now networks with the strongest received signal will be placed last to avoid scrolling
+ - Fixed small bug on Evil Twin captive portal attack for passwords containing more than one space char
+ - Fixed Docker routing problem
+
+### 11.21
+ - Chinese language translation added (Thank you to "zcbxx")
+ - Fixed bug parsing cracked PIN on WPS reaver Pixie Dust attack for newer reaver versions
+ - Fixed error on PMKID capturing due hcxdumptool different params for newer versions using bpf filters
+ - Fixed error on interfaces and process killing on "DoS pursuit mode"
+
+### 11.20
+ - Improvements and fixes on "DoS pursuit mode"
+ - Fixed bug on Evil Twin captive portal attack when relative paths used
+ - Added Consistent Network Device Naming detection check upon interface selection
+ - Fixed bug on filtered WPA scans when pure WPA3 (SAE) present
+ - Fixed WPS attacks error message appearing on some Linux distributions
+ - Fixed bug in graphics system detection for non-systemd systems
+ - Added optional advanced captive portal including vendor logos
+
+### 11.11
+ - Custom enterprise certificates creation fix (now sha256) for modern hostapd-wpe versions
+ - Fixed Docker distro shown (now Kali based)
+ - Fixed PMKID hashcat hash parsing
+ - Improvements on graphics system and resolution detection
+ - Fixed 5Ghz Evil Twin attacks DoS problems
+ - Added 5Ghz country code check 
+ - Improvements on OS/distro detection
+
+### 11.10
+ - Fixed problem for latest BeEF
+ - Fixed broken dependency menu validation
+ - Added sponsorship mentions
+ - WPS attacks modified to avoid saved sessions messages
+ - Adapted conversion for hashcat modern versions
+
+### 11.02
+ - Fixed minor bug in minimum length setting while bruteforcing using hashcat
+ - Improvement hashcat use forcing it to use -m 22000 instead of old -m 2500 over handshakes cracking for hashcat modern versions
+ - Added WSL/WSL2 detection to force exit due to incompatibility
+ - Extended compatibility to use lspci 3.8 not accepting 0x
+ - Fixed error showing connected clients in Evil Twin captive portal attack
+
+### 11.01
+ - Fixed busy ports checks
+ - Added PIN to WPS trophy file
+ - Fixed Evil Twin route problems for modern mobile devices (Android, Kali Nethunter, etc.)
+ - Improvement in missing dependencies plugin to be able to check output when errors occur
+ - Adapted WPA/WPA2 attacks (handshake capture, PMKID and Evil Twin captive portal) to work with WPA2/WPA3 mixed networks
+ - Fix error launching sslstrip2 using old Bettercap 1.x
+
+### 11.0
+ - Improvements in plugins system
+ - GPU support for hashcat
+ - Keep compatibility for hashcat -m 2500 on new hashcat versions
+ - Improvement for busy ports checks on Evil Twin attacks, now show conflicting process
+ - Fixed error on captive portal trophy file path when only dir (no file) specified
+ - Added CI files to be used in Github actions for Docker automated building
+
+### 10.42
+ - Changed airmon compatibility check to fit same method used by airmon
+ - VIF support check added before launching Evil Twin attacks
+ - airgeddon version shown in title at main menu
+ - Fixed arabic scrambled strings and added missing arabic strings to missing dependencies plugin
+ - Fixed debug mode malfunction
+ - Added busy ports checks on Evil Twin attacks
+ - Dockerfile rollback to Arch (ArchStrike image as base) due to Parrot repos problems
+
+### 10.41
+ - Fixed error on PMKID hash validation
+ - Created an option to avoid Network Manager force killing on Evil Twin attacks
+ - Code improvements to allow new kind of arguments based plugins
+ - Dsniff Evil Twin captive portal DNS black hole replaced by dnsmasq
+ - Dockerfile rollback to Parrot (Parrot Security image as base) to avoid Arch Glibc + Dockerhub automated builds problem
+
 ### 10.40
  - Removed deprecated route command
  - Fixed error on WPS PINs found in database counter
@@ -55,7 +133,7 @@
  - Added plugins system
  - Added example plugin: Missing dependencies auto-installation for some distros (Kali, Parrot, BlackArch)
  - Improvements for Evil Twin on captive portal detection for newer devices
- - Missing 5GHz channels added
+ - Missing 5Ghz channels added
  - Github pull request template added and issue templates updated
  - Fixed error on hex2ascii conversion for some WEP passwords
 
@@ -75,7 +153,7 @@
  - Added tab autocompletion for every path input
 
 ### 9.21
- - Fixed non-closing windows on some DoS pursuit mode attacks
+ - Fixed non-closing windows on some "DoS pursuit mode" attacks
  - Added retrocompatibility for mdk3, added option in .airgeddonrc file to handle it
  - Fixed bug on WEP all-in-one attack (Fake Auth) for SSIDs containing spaces
  - Fixed repeated enterprise plain passwords captured on trophy files
@@ -101,7 +179,7 @@
  - Routing rules adapted to work with nftables
 
 ### 9.01
- - Improvments on options environment var system
+ - Improvements on options environment var system
  - Minor fixes for ARM devices
  - Fixed iptables (nf_tables) problem
 
@@ -204,7 +282,7 @@
  - Fixed bug while changing interface mode if the destination interface name is in use
  - Removed util-linux dependency for rev use
  - The existing iptables rules before the launch of airgeddon are now restored upon exiting if modified
- - Fixed bug while checking for NetworkManager's version on some linux distributions
+ - Fixed bug while checking for NetworkManager's version on some Linux distributions
  - Tested compatibility with Kali Linux 2017.1 and Parrot 3.5
  - Dockerfile updated
 
@@ -216,7 +294,7 @@
 ### 6.21
  - Improved chipset detection, lsusb added to internal tools
  - Improved internet checking. Now more methods, not only icmp
- - Fixed error executing airgeddon after auto-update on some distros
+ - Fixed error executing airgeddon after auto-update on some Linux distributions
  - Added LICENSE.md and README.md files to Kali package
 
 ### 6.2
@@ -342,7 +420,7 @@
 ### 4.02
  - New windows sizes calculation method for better viewing even in small resolutions. Dynamic system
  - Fixed bug restarting Network Manager on Arch Linux
- - Fixed bug restarting Network Manager using debug mode on some distros
+ - Fixed bug restarting Network Manager using debug mode on some Linux distributions
  - Suggestion added about possible packet names after failing a dependency check
 
 ### 4.01
@@ -352,7 +430,7 @@
  - Evil Twin attack added: Only AP to sniff with external sniffer
  - Created under construction message for non finished menu options
  - README.md beautified
- - Screen resolution correction feature added for some distros
+ - Screen resolution correction feature added for some Linux distributions
  - Some minor improvements and bugfixes
 
 ### 3.44
@@ -390,7 +468,7 @@
 
 ### 3.34
  - Ascii art intro added on script startup (animated flying saucer!!)
- - Bug fixed after putting card in monitor mode and the card name changed on some distros
+ - Bug fixed after putting card in monitor mode and the card name changed on some Linux distributions
  - Compatibility extended to Gentoo, Fedora and Red Hat Linux
 
 ### 3.33
@@ -450,7 +528,7 @@
 
 ### 3.1
  - Restoring initial state of cards on exit feature
- - "No check kill needed" feature added while putting card in monitor mode for some distros
+ - "No check kill needed" feature added while putting card in monitor mode for some Linux distributions
  - Fixed bug checking tools
 
 ### 3.02
@@ -513,7 +591,7 @@
  - Compatibility check minor bug fixed
 
 ### 2.1
- - Compatibility check at beginning to support more distros
+ - Compatibility check at beginning to support more Linux distributions
  - Changelog file added to project
 
 ### 2.03
